@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'marsh'
+    }
  options {
         timeout(time:1, unit:'HOURS')
         disableConcurrentBuilds()
