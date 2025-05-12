@@ -16,7 +16,9 @@ pipeline {
         }
         stage('apply') {
             steps {
-                sh 'terraform destroy -auto-approve' 
+                withAWS(credentials: 'aws-auth') {
+                     sh 'terraform apply -auto-approve' 
+                }          
             }
         }
     }
